@@ -1,0 +1,103 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,light&v1" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/main.css"/>
+        {% render_block "css" %}
+    </head>
+    <body class="backbody">
+        {% cms_toolbar %}
+        <div class="container">
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">BCIS Web</a>
+                </div>
+               
+            </div>
+            
+            <div id="body">
+                <div id="header">
+                    <div class="langchoice" >
+                        <ul>{% language_chooser %}</ul>
+                    </div>
+                    <div id="logo_1">
+                        <img src="{{ STATIC_URL }}img/logo_bcis.png" alt="Logo du site" id="logo_image_bcis"></img>
+                        
+                        <div id="title_bcis_1">
+                            BCIS
+                        </div>
+                        
+                        <div id="title_bcis_2">
+                            Biodiversity Conservation<br></br>
+                            Information Systems<br clear="all"><br></br>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="hr_simple">
+                
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        {% show_menu 0 1 100 100 "menu.html" %}
+                    </ul>
+
+<!--
+                    <nav>
+                        <ul>{% show_menu 0 0 %}</ul>
+                        <ul>{% show_sub_menu 1 1  %}</ul>
+                    </nav>
+-->
+
+                </div>
+
+                <hr class="hr_simple">
+               
+                <div id="title">
+                     {% placeholder "title_site" %}
+                </div>
+                <hr class="hr_double">
+               
+                <div id="main_content">
+                    <div id="left">
+                        {% placeholder "contents"  %}
+                    </div>
+
+                    <div id="center"></div>
+                    
+                    <div id="right">
+                        <div id="logo_2">
+                            <img id="logo_image_biodiv" src="{{ STATIC_URL }}img/logo-undb-en.png" alt="Logo" ></img>
+                        </div>
+                        
+                        <hr class="hr_double_news">
+                        <div id="title_news">News</div>
+                        <hr class="hr_simple_news">
+                        
+                       {% placeholder "news" %}
+                        
+                    </div>
+ 
+            <div id="footer">
+                <hr class="hr_double_news">
+                &copy BCIS 2009-2016
+            </div>
+    
+                    
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        {% render_block "js" %}
+    </body>
+</html>
