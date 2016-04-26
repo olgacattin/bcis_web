@@ -27,9 +27,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'p9_%y0i7o5%-vdnnk3y=m%5ea!o27e09e72w7n123l(f#m9#scj^$h%3@)l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['test-web.bcis.ch']
+ALLOWED_HOSTS = ['www.test-web.bcis.ch']
 
 # Application definition
 ROOT_URLCONF = 'bcis_web.urls'
@@ -144,9 +144,9 @@ INSTALLED_APPS = (
 
 LANGUAGES = (
     ## Customize this
-    ('en', gettext('en')),
-    ('fr', gettext('fr')),
-    ('de', gettext('de')),
+    ('en', u'english'),
+    ('fr', u'français'),
+    ('de', u'deutsch'),
 )
 
 CMS_LANGUAGES = {
@@ -195,7 +195,7 @@ DATABASES = {
     'default': {
         'CONN_MAX_AGE': 0,
         'ENGINE': 'django.db.backends.sqlite3',
-        'HOST': 'localhost',
+        'HOST': '',
         'NAME': 'project.db',
         'PASSWORD': '',
         'PORT': '',
@@ -217,3 +217,7 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+from local_settings import *
+
+
